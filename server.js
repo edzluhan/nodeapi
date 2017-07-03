@@ -1,12 +1,14 @@
 require('dotenv').config();
 
 var express = require('express'),
-	mongoose = require('mongoose'),
-	User = require('./api/models/User'),
-	bodyParser = require('body-parser');
-	app = express(),
-	port = process.env.PORT,
-	mongodbUri = process.env.MONGODB_URI;
+        mongoose = require('mongoose'),
+        User = require('./api/models/User'),
+        Room = require('./api/models/Room'),
+        bodyParser = require('body-parser');
+
+app = express(),
+port = process.env.PORT,
+mongodbUri = process.env.MONGODB_URI;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongodbUri);
