@@ -1,19 +1,22 @@
 require('dotenv').config();
 
 var express = require('express'),
-        mongoose = require('mongoose'),
-        User = require('./api/models/User'),
-        Room = require('./api/models/Room'),
-        bodyParser = require('body-parser');
+    mongoose = require('mongoose'),
+    User = require('./api/models/User'),
+    Room = require('./api/models/Room'),
+    bodyParser = require('body-parser'),
+    cors = require('cors');
 
-app = express(),
-port = process.env.PORT,
-mongodbUri = process.env.MONGODB_URI;
+var app = express(),
+    port = process.env.PORT,
+    mongodbUri = process.env.MONGODB_URI;
 
 mongoose.Promise = global.Promise;
 mongoose.connect(mongodbUri);
 
-
+// use cors
+// https://github.com/expressjs/cors
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
