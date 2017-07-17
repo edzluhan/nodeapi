@@ -2,6 +2,7 @@
 module.exports = function(app) {
   var user = require('./controllers/userController');
   var room = require('./controllers/roomController');
+  var accommodation = require('./controllers/accommodationController');
 
   // user Routes
   app.route('/users')
@@ -13,7 +14,7 @@ module.exports = function(app) {
     .put(user.update)
     .delete(user.delete);
 
-    // room Routes
+  // room Routes
   app.route('/rooms')
     .get(room.list)
     .post(room.create);
@@ -22,4 +23,14 @@ module.exports = function(app) {
     .get(room.get)
     .put(room.update)
     .delete(room.delete);
+
+  // accommodation Routes
+  app.route('/accommodations')
+    .get(accommodation.list)
+    .post(accommodation.create);
+
+  app.route('/accommodations/:accommodationId')
+    .get(accommodation.get)
+    .put(accommodation.update)
+    .delete(accommodation.delete);
 };

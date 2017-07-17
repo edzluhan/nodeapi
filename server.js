@@ -4,6 +4,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     User = require('./api/models/User'),
     Room = require('./api/models/Room'),
+    Accommodation = require('./api/models/Accommodation'),
     bodyParser = require('body-parser'),
     cors = require('cors');
 
